@@ -8,6 +8,11 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Avenir.ttc">
+            <string>Avenir-Book</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--MainVC-->
         <scene sceneID="tne-QT-ifu">
@@ -27,25 +32,47 @@
                                     <constraint firstAttribute="width" constant="60" id="RmP-FE-acS"/>
                                 </constraints>
                             </imageView>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Your Hourly Wage" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wac-cW-x5X" customClass="CurrencyTextField" customModule="calculation" customModuleProvider="target">
-                                <rect key="frame" x="46" y="181" width="283" height="39"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Your Hourly Wage" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wac-cW-x5X" customClass="CurrencyTextField" customModule="calculation" customModuleProvider="target">
+                                <rect key="frame" x="25" y="150" width="325" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Mlc-0t-de1"/>
+                                </constraints>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad" enablesReturnKeyAutomatically="YES"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Item Price" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OSq-NY-LC6" customClass="CurrencyTextField" customModule="calculation" customModuleProvider="target">
+                                <rect key="frame" x="25" y="235" width="325" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="aMG-Mt-Ppl"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad" enablesReturnKeyAutomatically="YES"/>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="wac-cW-x5X" firstAttribute="top" secondItem="9On-qB-OHC" secondAttribute="bottom" constant="35" id="0Ur-KW-XLl"/>
+                            <constraint firstItem="OSq-NY-LC6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="25" id="2pi-gN-v9r"/>
                             <constraint firstItem="hjb-R4-I9w" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="5DI-IP-8S2"/>
+                            <constraint firstItem="wac-cW-x5X" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="25" id="9vn-WK-8Zq"/>
                             <constraint firstItem="hjb-R4-I9w" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="ARu-sb-4SG"/>
                             <constraint firstItem="9On-qB-OHC" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="35" id="Ae9-13-cQp"/>
                             <constraint firstItem="9On-qB-OHC" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="ELA-P0-Pg5"/>
+                            <constraint firstItem="OSq-NY-LC6" firstAttribute="height" secondItem="wac-cW-x5X" secondAttribute="height" id="SKr-sM-hIt"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="OSq-NY-LC6" secondAttribute="trailing" constant="25" id="d8t-K4-bXz"/>
+                            <constraint firstItem="OSq-NY-LC6" firstAttribute="top" secondItem="wac-cW-x5X" secondAttribute="bottom" constant="35" id="gIy-Vr-hwb"/>
                             <constraint firstItem="hjb-R4-I9w" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="nex-fN-E5u"/>
                             <constraint firstItem="hjb-R4-I9w" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="tJ1-kQ-dLv"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="wac-cW-x5X" secondAttribute="trailing" constant="25" id="u6u-9U-1Ox"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="priceTxt" destination="OSq-NY-LC6" id="z62-tP-t2Y"/>
+                        <outlet property="wageTxt" destination="wac-cW-x5X" id="oG1-sL-bYC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
