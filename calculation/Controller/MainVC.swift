@@ -12,6 +12,9 @@ class MainVC: UIViewController {
 
     @IBOutlet weak var wageTxt: CurrencyTextField!
     @IBOutlet weak var priceTxt: CurrencyTextField!
+    @IBOutlet weak var resultLbl: UILabel!
+    @IBOutlet weak var hoursLbl: UILabel!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,13 +26,31 @@ class MainVC: UIViewController {
         calBtn.addTarget(self, action: #selector(MainVC.caluclate), for: .touchUpInside)
         wageTxt.inputAccessoryView = calBtn
         priceTxt.inputAccessoryView = calBtn
+        resultLbl.isHidden = true
+        hoursLbl.isHidden = true
     }
     @objc func caluclate ()
     {
-        
+        if let wageTxt = wageTxt.text ,let priceTxt = priceTxt.text
+        {
+            if let wage = Double (wageTxt) , let price = Double (priceTxt)
+            {
+                view.endEditing(true)// to close the keyboard or decimal pad
+                resultLbl.isHidden = false
+                hoursLbl.isHidden = false
+                resultLbl.text = "\(Wage.getHours(forWage: wage, andPrice: price))"
+            }
+        }
     }
 
-
+    @IBAction func clearCalculatorPressed(_ sender: Any)
+    {
+        resultLbl.isHidden = true
+        hoursLbl.isHidden = true
+        wageTxt.text = ""
+        priceTxt.text = ""
+    }
+    
 
 }
 
